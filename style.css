@@ -9,7 +9,7 @@
 body {
     background-color: #121214;
     background-image: url(./assets/bg.svg);
-    background-position: center 55.6%;
+    background-position: center -715px;
 
     font-family: 'Roboto', sans-serif;
 }
@@ -21,6 +21,14 @@ body {
 
 header {
     margin-bottom: 63px;
+    
+    text-align: center;
+}
+
+#cards {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
 }
 
 .card {
