@@ -8,9 +8,11 @@ function createMatches(team1, hour, team2) {
     `
 }
 
+let delay = -0.4;
 function createCard(date, day, matches) {
+    delay = delay + 0.4;
     return `
-    <div class="card">
+    <div class="card" style="animation-delay: ${delay}s">
         <h2>${date} <span>${day}</span></h2>
         <ul>
             ${matches}
@@ -19,18 +21,9 @@ function createCard(date, day, matches) {
     `
 }
 
-document.querySelector("#app").innerHTML = `
-    <header>
-        <img src="./assets/logo.svg" alt="Logo da NLW Copa">
-    </header>
-
-    <main id="cards">
-        ${createCard("24/11", "QUINTA", 
-        createMatches("brazil", "16:00", "serbia"))}
-        ${createCard("28/11", "SEGUNDA", 
-        createMatches("brazil", "13:00", "switzerland") +
-        createMatches("portugal", "16:00", "uruguay"))}
-        ${createCard("02/12", "SEXTA", 
-        createMatches("brazil", "14:00", "cameroon"))}
-    </main>
-`
+document.querySelector("#cards").innerHTML = 
+        createCard("24/11", "QUINTA", createMatches("brazil", "16:00", "serbia")) +
+        createCard("28/11", "SEGUNDA", createMatches("brazil", "13:00", "switzerland") +
+        createMatches("portugal", "16:00", "uruguay")
+        ) +
+        createCard("02/12", "SEXTA", createMatches("brazil", "14:00", "cameroon"))
